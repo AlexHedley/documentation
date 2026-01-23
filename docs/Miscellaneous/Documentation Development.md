@@ -75,39 +75,59 @@ These are modules within VBA and VBRUN:
 
 > [!NOTE]
 >
-> All non-alphabetic characters are removed from the links. All attribute names are in lowercase in the links. I.e. `ArrayBoundsChecks(Bool)` is referenced as `/tB/Core/Attributes#arrayboundschecksbool`. 
+> All non-alphabetic characters, as well as parameters, are removed from the links. All attribute names are in lowercase in the links. E.g. `ArrayBoundsChecks(Bool)` is referenced as `/tB/Core/Attributes#arrayboundschecks`. 
 
 - [AppObject](../tB/Core/Attributes#appobject)
-- [ArrayBoundsChecks(Bool)](../tB/Core/Attributes#arrayboundschecksbool)
-- [CoClassCustomConstructor(String)](../tB/Core/Attributes#coclasscustomconstructorstring)
-- [CoClassId(String)](../tB/Core/Attributes#coclassidstring)
-- [ComCreatable(Bool)](../tB/Core/Attributes#comcreatablebool)
-- [ComExtensible(Bool)](../tB/Core/Attributes#comextensiblebool)
+- [ArrayBoundsChecks](../tB/Core/Attributes#arrayboundschecks)
+- [BindOnlyIfNoArguments](../tB/Core/Attributes#bindonlyifnoarguments)
+- [BindOnlyIfStringSuffix](../tB/Core/Attributes#bindonlyifstringsuffix)
+- [ClassId](../tB/Core/Attributes#classid)
+- [CoClassCustomConstructor](../tB/Core/Attributes#coclasscustomconstructor)
+- [CoClassId](../tB/Core/Attributes#coclassid)
+- [COMControl](../tB/Core/Attributes#comcontrol)
+- [COMCreatable](../tB/Core/Attributes#comcreatable)
+- [COMExtensible](../tB/Core/Attributes#comextensible)
 - [ComImport](../tB/Core/Attributes#comimport)
-- [CompileIf(Bool)](../tB/Core/Attributes#compileifbool)
+- [CompileIf](../tB/Core/Attributes#compileif)
+- [CompilerOptions](../tB/Core/Attributes#compileroptions)
 - [ConstantFoldable](../tB/Core/Attributes#constantfoldable)
-- [Debuggable(Bool)](../tB/Core/Attributes#debuggablebool)
+- [ConstantFoldableNumericsOnly](../tB/Core/Attributes#constantfoldablenumericsonly)
+- [Debuggable](../tB/Core/Attributes#debuggable)
 - [DebugOnly](../tB/Core/Attributes#debugonly)
-- [Description(String)](../tB/Core/Attributes#description)
-- [DispId(Integer)](../tB/Core/Attributes#dispidinteger)
+- [Description](../tB/Core/Attributes#description)
+- [DispId](../tB/Core/Attributes#dispid)
 - [DllExport](../tB/Core/Attributes#dllexport)
-- [DllStackCheck(Bool)](../tB/Core/Attributes#dllstackcheckbool)
-- [EnumId(String)](../tB/Core/Attributes#enumidstring)
+- [DLLStackCheck](../tB/Core/Attributes#dllstackcheck)
+- [EnforceErrors](../tB/Core/Attributes#enforceerrors)
+- [EnforceWarnings](../tB/Core/Attributes#enforcewarnings)
+- [EnumId](../tB/Core/Attributes#enumid)
+- [EventInterfaceId](../tB/Core/Attributes#eventinterfaceid)
+- [EventsUseDispInterface](../tB/Core/Attributes#eventsusedispinterface)
 - [Flags](../tB/Core/Attributes#flags)
-- [FloatingPointErrorChecks(Bool)](../tB/Core/Attributes#floatingpointerrorchecksbool)
+- [FloatingPointErrorChecks](../tB/Core/Attributes#floatingpointerrorchecks)
+- [FormDesignerId](../tB/Core/Attributes#formdesignerid)
 - [Hidden](../tB/Core/Attributes#hidden)
-- [IntegerOverflowChecks(Bool)](../tB/Core/Attributes#integeroverflowchecksbool)
-- [InterfaceId(String)](../tB/Core/Attributes#interfaceidstring)
-- [OleAutomation(Bool)](../tB/Core/Attributes#oleautomationbool)
-- [PopulateFrom(…)](../tB/Core/Attributes#populatefrom)
+- [IdeButton](../tB/Core/Attributes#idebutton)
+- [IntegerOverflowChecks](../tB/Core/Attributes#integeroverflowchecks)
+- [InterfaceId](../tB/Core/Attributes#interfaceid)
+- [MustBeQualified](../tB/Core/Attributes#mustbequalified)
+- [OleAutomation](../tB/Core/Attributes#oleautomation)
+- [PackingAlignment](../tB/Core/Attributes#packingalignment)
+- [PopulateFrom](../tB/Core/Attributes#populatefrom)
 - [PredeclaredID](../tB/Core/Attributes#predeclaredid)
-- [PreserveSig(Bool)](../tB/Core/Attributes#preservesigbool)
+- [PreserveSig](../tB/Core/Attributes#preservesig)
 - [Restricted](../tB/Core/Attributes#restricted)
 - [RunAfterBuild](../tB/Core/Attributes#runafterbuild)
-- [SetDllDirectory(Bool)](../tB/Core/Attributes#setdlldirectorybool)
-- [TypeHint(EnumType)](../tB/Core/Attributes#typehintenumtype)
+- [Serialize](../tB/Core/Attributes#serialize)
+- [SetDllDirectory](../tB/Core/Attributes#setdlldirectory)
+- [SimplerByVals](../tB/Core/Attributes#simplerbyvals)
+- [TestCase](../tB/Core/Attributes#testcase)
+- [TestFixture](../tB/Core/Attributes#testfixture)
+- [TypeHint](../tB/Core/Attributes#typehint)
 - [Unimplemented](../tB/Core/Attributes#unimplemented)
-
+- [UseGetLastError](../tB/Core/Attributes#usegetlasterror)
+- [UserDefinedTypeIsAnAlias](../tB/Core/Attributes#userdefinedtypeisanalias)
+- [WindowsControl](../tB/Core/Attributes#windowscontrol)
 
 ## Development Environment
 
@@ -125,9 +145,29 @@ The documentation is built (renderd to html) using [Jekyll][jekyllrb].
 
 4. **Go to the `/docs` folder in the cloned working tree.** Building, serving, and other documentation operations are all done in this folder, *not* in the repository root.
 
+### Building
+
 To build the documentation, i.e. render it from `.md` files to the `_site` folder:
 
     bundle exec jekyll build
+
+or, on Windows only:
+
+    build.bat
+
+### Checking Link Integrity
+
+Before checking link integrity, the documentation must be built. This can be done by ad-hoc by [building](#building),  or continuously in the background by [building and serving](#building-and-local-serving).
+
+To check that none of the internal links in the most recent documentation build are broken:
+
+    bundle exec htmlproofer ./_site --disable-external --no-enforce-https
+
+or, on Windows only
+
+    check.bat
+
+### Building and Local Serving
 
 To build and serve the documentation from http://localhost:4000:
 
@@ -137,15 +177,7 @@ or, on Windows only:
 
     serve.bat
 
-The documentation server detects changes in the filesystem and automatically regenerates the html files as needed. The server does *not* follow changes in `_config.yml`. If you change the configuration, the server has to be restarted. Interrupt the server by pressing **^C** repeatedly.
-
-To check that none of the internal links in the documentation are broken:
-
-    bundle exec htmlproofer ./_site --disable-external --no-enforce-https
-
-or, on Windows only
-
-    check.bat
+The documentation server detects changes in the filesystem and automatically regenerates the html files as needed. The server does *not* follow changes in `_config.yml`. If you change the configuration, the server has to be restarted. Interrupt the server by pressing <kbd>Ctrl</kbd><kbd>C</kbd> repeatedly.
 
 ## Deploying to docs.twinbasic.com
 
